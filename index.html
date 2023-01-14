@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="clock square">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="minute">
+                <div class="min" id="min"></div>
+            </div>
+            <div class="second">
+                <div class="sec" id="sec"></div>
+            </div>
+        </div>
+        <div class="clock round">
+            <div class="hour">
+                <div class="hr" id="hr"></div>
+            </div>
+            <div class="minute">
+                <div class="min" id="min"></div>
+            </div>
+            <div class="second">
+                <div class="sec" id="sec"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="download">
+        <a href="https://www.mediafire.com/file/w4htlav1osp9ykn/squared.zip/file" class="btn">Downlad Squared Clock Source File</a>
+        <a href="https://www.mediafire.com/file/jdghqarodtz0s8d/rounded.zip/file" class="btn">Downlad Rounded Clock Source File</a>
+    </div>
+
+    <script type="text/javascript">
+        const deg = 6;
+        const Rhr = document.querySelector(".clock.round .hour #hr");
+        const Rmin = document.querySelector(".clock.round .minute #min");
+        const Rsec = document.querySelector(".clock.round .second #sec");
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            Rhr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            Rmin.style.transform = `rotateZ(${mm}deg)`;
+            Rsec.style.transform = `rotateZ(${ss}deg)`;
+        })
+
+        const hr = document.querySelector(".clock.square .hour #hr");
+        const min = document.querySelector(".clock.square .minute #min");
+        const sec = document.querySelector(".clock.square .second #sec");
+
+        setInterval(() => {
+            let day = new Date();
+            let hh = day.getHours() * 30;
+            let mm = day.getMinutes() * deg;
+            let ss = day.getSeconds() * deg;
+
+            hr.style.transform = `rotateZ(${(hh) + (mm / 12)}deg)`;
+            min.style.transform = `rotateZ(${mm}deg)`;
+            sec.style.transform = `rotateZ(${ss}deg)`;
+        })
+    </script>
+</body>
+
+</html>
+
+
